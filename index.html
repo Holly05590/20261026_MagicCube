@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="適合親子學習的魔術方塊 OLL 57 筆記，附轉動動畫、繁體中文口訣、30 天計畫與練習勾選。">
+<meta name="theme-color" content="#225d4c">
+<title>魔術方塊學習筆記｜OLL 57 與轉動動畫</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<script defer src="./assets/animation.js"></script>
+<script defer src="./assets/app.js"></script>
+</head>
+<body>
+<header><small>魔術方塊學習筆記 · 互動學習版</small><h1>把 57 種 OLL<br>練成看得懂的直覺。</h1><p>黃色朝上，前兩層完成。先辨識頂面，再用四側黃貼確認方向。</p><span class="pill" style="color:#20312d">57 公式 × 15 分類 × 30 天</span></header><main>
+<div class="toolbar no-print"><button id="guideBtn">讀圖與轉動說明</button><button id="planBtn">30 天學習計畫</button><button id="randomBtn">隨機練習</button><button id="exportBtn">匯出進度</button><label class="btn">匯入進度 <input id="importFile" type="file" accept="application/json" style="max-width:170px"></label><button onclick="window.print()">列印目前頁面</button></div><p id="status" aria-live="polite"></p><nav id="tabs" aria-label="公式分類"></nav><div class="toolbar" id="filters"><input id="search" aria-label="搜尋編號、分類或名稱" placeholder="搜尋：27、小魚、T 字…"><label><input type="checkbox" id="pending">只看尚未熟練</label><label><input type="checkbox" id="hide">遮住公式，自我測驗</label></div><div id="content" style="margin-top:20px"></div>
+<footer class="muted">2026-10-26 更新。手機與電腦皆可使用；下載整個專案也可離線開啟。無外部程式、字型或圖片依賴。</footer>
+</main>
+
+<template id="animation-template"><div id="cube-moves-demo">
+
+<div class="cm-controls">
+<label class="form-label cm-field">教學模式<select class="form-select" data-mode><option value="single">單一符號</option><option value="sune">27 小魚，逐步練習</option><option value="antisune">26 反小魚，逐步練習</option></select></label>
+<span class="muted">視角：固定看前、右、上</span><label hidden class="form-label cm-field">視角<select class="form-select" data-view><option value="fixed">固定看前、右、上</option></select></label>
+</div>
+<div class="cm-controls" data-single>
+<label class="form-label cm-field">轉哪裡<select class="form-select" data-move><optgroup label="單層"><option value="R">R 右面</option><option value="L">L 左面</option><option value="U">U 上面</option><option value="D">D 下面</option><option value="F">F 前面</option><option value="B">B 後面</option></optgroup><optgroup label="兩層一起"><option value="r">r 右兩層（Rw）</option><option value="l">l 左兩層（Lw）</option><option value="f">f 前兩層（Fw）</option></optgroup><optgroup label="中層"><option value="M">M 中層，跟 L 同方向</option><option value="E">E 中層，跟 D 同方向</option><option value="S">S 中層，跟 F 同方向</option></optgroup><optgroup label="整顆換握"><option value="x">x 整顆，跟 R 同方向</option><option value="y">y 整顆，跟 U 同方向</option><option value="z">z 整顆，跟 F 同方向</option></optgroup></select></label>
+<label class="form-label cm-field">轉多少<select class="form-select" data-suffix><option value="">無符號：順時針 90°</option><option value="'">′：逆時針 90°</option><option value="2">2：半圈 180°</option></select></label>
+</div>
+<div class="cm-controls" data-direction-controls hidden><label class="form-label cm-field">動畫版本<select class="form-select" data-direction><option value="solve">解題動畫：題目 → 全黃</option><option value="setup">還原場景：復原方塊 → 題目</option></select></label></div>
+<div class="cm-symbols" data-sequence hidden></div>
+<div class="cm-detail" data-detail aria-live="polite"></div>
+<svg class="cm-diagram" role="img" aria-label="魔術方塊轉動動畫，貼紙編號標記原來位置"></svg>
+<div class="cm-controls"><button class="btn btn-primary" data-play>播放轉動</button><button class="btn" data-next hidden>下一步</button><button class="btn btn-primary" data-continuous hidden>連續播放</button><button class="btn" data-again hidden>從頭練習</button></div>
+<div class="text-small" data-caption>貼紙標記原始面與位置；中心字母辨識目前視角。</div>
+</div></template>
+<noscript>請啟用 JavaScript，以使用公式筆記、轉動動畫及練習進度。</noscript>
+</body>
+</html>
